@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}?v=171">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="
+display:flex;
+width:100%;
+max-width:640px;
+align-item:center;
+">
+    <ul class="navigation">
+
+        {% if user.is_authenticated %}
+            <li><a href="/accounts/logout">logout</a></li>
+        {% else %}
+            <li><a href="/sign">sign up</a></li>
+            <li><a href="/accounts/login">login</a></li>
+        {% endif %}
+    </ul>
+</div >
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
